@@ -1,0 +1,19 @@
+<div class="main-header-nav">
+    <div class="title">
+        <p>
+            <mat-toolbar>
+              <span>My Application</span>
+            </mat-toolbar>
+        </p>
+    </div>
+    <div class="signin-btn">
+        <!-- <button mat-icon-button class="example-icon favorite-icon"> -->
+            <a routerLink="/cart" class="cart-icon">
+                <mat-icon [matBadge]="dataService.cartArray.length" matBadgeColor="warn">shopping_cart</mat-icon>
+            </a>
+          <!-- </button> -->
+        <button mat-button class="logout-btn" (click)="onLogout()">
+            <a>Logout</a>
+        </button>
+    </div>
+</div>

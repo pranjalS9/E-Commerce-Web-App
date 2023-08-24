@@ -1,0 +1,38 @@
+
+<div class="products">
+
+    <!-- CATEGORY DROPDOWN -->
+
+    <div class="category-dropdown">
+        <form [formGroup]="categoryForm" (submit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Category</mat-label>
+                <select matNativeControl (change)="changeCategory($event)" formControlName="category" required>
+                    <option value="">Choose Category</option>
+                    <option *ngFor="let category of allCategories; index as i" [ngValue]="category">
+                        {{category}}
+                    </option>
+                </select>
+            </mat-form-field>
+        </form>
+    </div>
+
+    <!-- CATEGORY-WISE-DISPLAY PRODUCTS -->
+    <div class="product-list">
+        <!-- <mat-card *ngFor="let product of selectedProducts; index as i"> -->
+            <mat-card *ngFor="let product of productsArray; index as i">
+            <mat-card-content>
+                <div class="product-details">
+                    <div class="title">
+                        <a [routerLink]="['/product-details', product.id]">
+                            {{product?.title}}
+                        </a>
+                    </div>
+                    <div class="price">{{product?.price | currency}}</div>
+                    <div class="image"><img [src]="product?.image" alt=""></div>
+                    <!-- <div class="desc">{{product?.description}}</div> -->
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>    
+</div>

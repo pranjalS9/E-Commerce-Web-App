@@ -1,0 +1,30 @@
+.main-header-nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(245, 243, 243);
+}
+span{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.title{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+button{
+    background-color: rgb(180, 180, 243); 
+    margin: 1rem;
+    font-weight: bold;
+}
+/* .cart-icon{
+    margin-top: 4rem;
+} */
+.logout-btn{
+    margin-top: 0rem;
+}
+a{
+    text-decoration: none;
+}
+.signin-btn{
+    margin-top: 1.7rem;
+}

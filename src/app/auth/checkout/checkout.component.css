@@ -1,0 +1,11 @@
+.heading{
+    text-align: center;
+    font-size: 1.3rem;
+    height: 100%;
+}
+.heading-card{
+    background-color: rgb(237, 237, 237);
+}
+.total-items{
+    color: rgb(1, 152, 152);
+}

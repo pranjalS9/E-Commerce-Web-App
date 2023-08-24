@@ -1,0 +1,45 @@
+.orders-heading{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+.order-placed-shipto{
+    color: rgb(0, 198, 198);
+}
+.heading-container{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(176, 175, 175);
+    padding: 1rem;
+    border-radius: 5px;
+
+}
+.order-details{
+    display: flex;
+    justify-content: space-between;
+}
+.delievery-by-heading, .no-item-container{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+.delievery-by-heading{
+    font-weight: 600;
+}
+img{
+    width: 50px;
+    height: 50px;
+}
+.order-title{
+    font-size: 1rem;
+    color: rgb(2, 2, 46);
+}
+.order-image{
+    width: 20%;
+}
+.order-title{
+    width: 50%;
+}
+.cancel-order-btn{
+    width: 30%;
+}

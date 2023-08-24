@@ -1,0 +1,95 @@
+.heading{
+    font-size: 2rem;
+
+}
+.deselect-all-items{
+    background-color: transparent;
+    border: none;
+    color:brown;
+    font-size: 1rem;
+}
+.cart{
+    display: flex;
+    margin: 1rem;
+    width: auto;
+}
+.details{
+    margin-top: 1rem;
+}
+.items-container{
+    margin-right: 1rem;
+    width: 80%;
+}
+.subtotal-checkout-container{
+    width: 30%;
+}
+img{
+    width: 200px;
+    height: auto;
+    padding: 2rem;
+}
+.all-cart-items{
+    display: flex;
+}
+.title{
+    font-size: 1.5rem;
+}
+.price{
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.availability{
+    color: green
+}
+.quantity{
+    display: flex;
+}
+.manage-quantity-btn{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(198, 198, 198);
+    border-radius: 5px;
+    border: none;
+}
+.buy-quantity{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: rgb(235, 234, 234);
+    border-radius: 5px;
+}
+.total-amount{
+    font-weight: bold;
+}
+.subtotal-container{
+    padding: 1rem;
+}
+.subtotal{
+    font-size: 1.2rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.proceed{
+    background-color: rgb(180, 180, 243);
+    margin-top: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+.second-container{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+.delete-one-item{
+    border: none;
+    background-color: transparent;
+    color: red;
+}
+.vertical-line{
+    border-left: 2px solid rgb(217, 215, 215);
+    height: 22px;
+}

@@ -1,0 +1,31 @@
+.category-dropdown{
+    margin: 1rem;
+}
+.product-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.product-details{
+    margin-right: 2rem;
+}
+mat-card{
+    margin: 1rem;
+    width: 280px;
+}
+.title{
+    font-size: 1rem;
+    font-weight: bold;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+.image{
+    width: fit-content;
+    height: fit-content;
+}
+a{
+    text-decoration: none;
+    color: black;
+}

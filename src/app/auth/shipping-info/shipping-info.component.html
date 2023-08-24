@@ -1,0 +1,43 @@
+<div class="address-container">
+    <div class="address-heading">Shipping Information</div>
+
+    <div class="change-address">
+        <div class="open-dialog-btn"> 
+            <button mat-raised-button (click)="openDialog()">Add Shipping Details</button>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<ng-template [ngIf]="shippingInfoArray.name !== ''" class="address-details">
+    <div class="address-info">
+
+        <table>
+            <tr>
+                <td><span>Name-</span> {{shippingInfoArray.name}}</td>
+                <td><span>Email-</span> {{shippingInfoArray.email}}</td>
+            </tr>
+            <tr>
+                <td><span>Contact No.-</span> {{shippingInfoArray.phone}}</td>
+                <td><span>Address-</span> {{shippingInfoArray.address}}</td>
+            </tr>
+            <tr>
+                <td><span>City-</span> {{shippingInfoArray.city}}</td>
+                <td><span>State-</span> {{shippingInfoArray.state}}</td>
+            </tr>
+            <tr>
+                <td><span>Pin Code-</span> {{shippingInfoArray.pincode}}</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="container-3">
+            <form [formGroup]="formGroup">
+                <input type="checkbox" formControlName="agreeCheckbox">I agree
+                <a routerLink="/payment-details"><button mat-button color="primary" [disabled]="!formGroup.get('agreeCheckbox')?.value">Proceed to Payment ➟</button></a>
+            </form>   
+        </div>
+    </div>
+</ng-template>
+<ng-template [ngIf]="shippingInfoArray.name == ''" class="address">No Address Added</ng-template>

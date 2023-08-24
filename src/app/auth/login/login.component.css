@@ -1,0 +1,23 @@
+.login-form{
+    position: relative;
+    top: 30%;
+    width: fit-content;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 5px;
+    background-color: rgb(245, 243, 243);
+}
+caption{
+    background-color: black;
+    color: rgb(245, 243, 243);
+    width: 15rem;
+    padding: 1rem;
+    margin: 2rem;
+}
+button{
+    background-color: rgb(180, 180, 243); 
+    width: 100%;
+    padding: 2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
