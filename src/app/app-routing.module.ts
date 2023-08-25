@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './auth/Components/home/home.component';
+import { HomeComponent } from './product/Components/home/home.component';
 import { LoginComponent } from './auth/Components/login/login.component';
 import { authGuard } from './auth/auth.guard';
-import { ProductDetailsComponent } from './auth/Components/product-details/product-details.component';
-import { CartComponent } from './auth/Components/cart/cart.component';
-import { CheckoutComponent } from './auth/Components/checkout/checkout.component';
-import { PaymentDetailsComponent } from './auth/Components/payment-details/payment-details.component';
-import { OrderSummaryComponent } from './auth/Components/order-summary/order-summary.component';
-import { OrdersComponent } from './auth/Components/orders/orders.component';
+import { ProductDetailsComponent } from './product/Components/product-details/product-details.component';
+import { CartComponent } from './cart/Components/cart/cart.component';
+import { CheckoutComponent } from './cart/Components/checkout/checkout.component';
+import { PaymentDetailsComponent } from './payment/Components/payment-details/payment-details.component';
+import { OrderSummaryComponent } from './payment/Components/order-summary/order-summary.component';
+import { OrdersComponent } from './order/Components/orders/orders.component';
 
 const routes: Routes = [
   {

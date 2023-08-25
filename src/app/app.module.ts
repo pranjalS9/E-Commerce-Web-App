@@ -18,20 +18,21 @@ import {MatSelectModule} from '@angular/material/select'
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { MainHeaderComponent } from './auth/Components/main-header/main-header.component';
-import { HomeComponent } from './auth/Components/home/home.component';
-import { ProductListComponent } from './auth/Components/product-list/product-list.component';
-import { ProductDetailsComponent } from './auth/Components/product-details/product-details.component';
+import { HomeComponent } from './product/Components/home/home.component';
+import { ProductListComponent } from './product/Components/product-list/product-list.component';
+import { ProductDetailsComponent } from './product/Components/product-details/product-details.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CartComponent } from './auth/Components/cart/cart.component';
-import { CheckoutComponent } from './auth/Components/checkout/checkout.component';
+import { CartComponent } from './cart/Components/cart/cart.component';
+import { CheckoutComponent } from './cart/Components/checkout/checkout.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgIf} from '@angular/common';
-import { ShippingInfoComponent } from './auth/Components/shipping-info/shipping-info.component';
-import { PaymentDetailsComponent } from './auth/Components/payment-details/payment-details.component';
-import { OrderSummaryComponent } from './auth/Components/order-summary/order-summary.component';
-import { OrdersComponent } from './auth/Components/orders/orders.component';
+import { ShippingInfoComponent } from './payment/Components/shipping-info/shipping-info.component';
+import { PaymentDetailsComponent } from './payment/Components/payment-details/payment-details.component';
+import { OrderSummaryComponent } from './payment/Components/order-summary/order-summary.component';
+import { OrdersComponent } from './order/Components/orders/orders.component';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { OrdersComponent } from './auth/Components/orders/orders.component';
     MatButtonModule,
     NgIf,
     MatDialogModule,
+    MatButtonToggleModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
