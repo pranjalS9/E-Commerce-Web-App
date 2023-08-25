@@ -26,11 +26,11 @@ export class ProductDetailsComponent implements OnInit {
     private cartService: CartService
   ) {}
 
-  currentRating = 3;
-  maxRating = 5;
   productId: string | null = '';
   relatedProducts!: IProduct[];
   relatedProductCategory: string = '';
+  totalItemsInCart: number = 0;
+  cartArray: ICart[] = this.cartService.cartArray;
 
 
   ngOnInit(): void {
@@ -40,15 +40,23 @@ export class ProductDetailsComponent implements OnInit {
         this.dataService.getProductById(this.productId).subscribe(response => {
           this.product = response;
           this.relatedProductCategory = this.product.category;
-          console.log(this.relatedProductCategory)
         })
       }
     });
+
+    this.totalItemsInCart = this.getTotalElementsOfCart();
   }
   
 
   ngOnDestroy(): void {
-    this.productSubscription?.unsubscribe(); // Unsubscribe when component is destroyed
+    this.productSubscription?.unsubscribe(); 
+  }
+
+  getTotalElementsOfCart(): number {
+    for(let i=0; i<this.cartArray.length; i++){
+      this.totalItemsInCart += this.cartArray[i].quantity;
+    }
+    return this.totalItemsInCart;
   }
 
   addToCart(){
@@ -58,10 +66,10 @@ export class ProductDetailsComponent implements OnInit {
       let existedProductId: number = 0;
       let cartArrayId: number = 0;
 
-      this.cartService.totalElementsInCart += 1;
+      this.totalItemsInCart += 1;
 
-      for(let i=0; i<this.cartService.cartArray.length; i++){
-        if(this.cartService.cartArray[i].id == this.product.id){
+      for(let i=0; i<this.cartArray.length; i++){
+        if(this.cartArray[i].id == this.product.id){
           isExistProduct = true;
           existedProductId = this.product.id;
           cartArrayId = i;
@@ -69,7 +77,6 @@ export class ProductDetailsComponent implements OnInit {
       }
       if(isExistProduct == false){
 
-        let itemQuantity = this.cartService.itemQuantity;
         let itemObj: ICart = {
             id: this.product.id,
             title: this.product.title,
@@ -78,13 +85,12 @@ export class ProductDetailsComponent implements OnInit {
             image: this.product.image,
             description: this.product.description,
             rating: this.product.rating,
-            quantity: itemQuantity
+            quantity: 1
         }
         
-        this.cartService.cartArray.push(itemObj);
+        this.cartArray.push(itemObj);
       }else{
-        // this.cartService.itemQuantity += 1;
-        this.cartService.cartArray[cartArrayId].quantity += 1;
+        this.cartArray[cartArrayId].quantity += 1;
         
       }
     }else{

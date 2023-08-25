@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data-service.service';
 import { ICart } from '../models/ICart';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { CartService } from 'src/app/cart.service';
-
 
 @Component({
   selector: 'app-order-summary',
@@ -13,7 +11,6 @@ import { CartService } from 'src/app/cart.service';
 })
 export class OrderSummaryComponent implements OnInit {
   constructor(
-    private dataService: DataService,
     private cartService: CartService,
     public dialog: MatDialog
   ){}

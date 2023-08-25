@@ -13,7 +13,7 @@
             </div>
             <div class="cart" *ngIf="isLoggedIn">
                 <a routerLink="/cart" class="cart-icon">
-                    <mat-icon [matBadge]="this.cartService.totalElementsInCart" matBadgeColor="warn">shopping_cart</mat-icon>
+                    <mat-icon [matBadge]="getTotalItemsInCart()" matBadgeColor="warn">shopping_cart</mat-icon>
                 </a>
             </div>
             

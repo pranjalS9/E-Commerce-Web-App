@@ -1,17 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IErrorMessage } from 'src/app/auth/models/IErrorMessages';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/data-service.service';
-import { IUser } from 'src/app/auth/models/IUser';
 import { HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  // imports: [
-  //   AuthService
-  // ]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;

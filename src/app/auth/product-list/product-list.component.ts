@@ -23,9 +23,6 @@ export class ProductListComponent implements OnInit {
   ] 
 
   // Initializations
-  productsArray: IProduct[] = [];
-  selectedProducts: IProduct[] = [];
-  currentCategory: string = '';
   
   constructor(
     private dataService: DataService,
@@ -33,6 +30,12 @@ export class ProductListComponent implements OnInit {
     private router: Router,
     private cartService: CartService
   ){}
+
+  productsArray: IProduct[] = [];
+  selectedProducts: IProduct[] = [];
+  currentCategory: string = '';
+  totalItemsInCart: number = 0;
+  cartArray: ICart[] = this.cartService.cartArray;
 
 
   ngOnInit(): void {
@@ -56,6 +59,13 @@ export class ProductListComponent implements OnInit {
     })
   }
 
+  getTotalElementsOfCart(): number {
+    for(let i=0; i<this.cartArray.length; i++){
+      this.totalItemsInCart += this.cartArray[i].quantity;
+    }
+    return this.totalItemsInCart;
+  }
+
   // to dynamically set the form control value.
   changeCategory(e: any){
     this.currentCategory = e.target.value;
@@ -73,21 +83,19 @@ export class ProductListComponent implements OnInit {
     let token = localStorage.getItem('token');
     if(token && token!==''){
       let isExistProduct: boolean = false;
-      let existedProductId: number = 0;
       let cartArrayId: number = 0;
 
-      this.cartService.totalElementsInCart += 1;
+      this.totalItemsInCart += 1;
 
-      for(let i=0; i<this.cartService.cartArray.length; i++){
-        if(this.cartService.cartArray[i].id == product.id){
+      for(let i=0; i<this.cartArray.length; i++){
+        if(this.cartArray[i].id == product.id){
           isExistProduct = true;
-          existedProductId = product.id;
           cartArrayId = i;
         }
       }
       if(isExistProduct == false){
 
-        let itemQuantity = this.cartService.itemQuantity;
+        let itemQuantity = this.totalItemsInCart;
         let itemObj: ICart = {
             id: product.id,
             title: product.title,
@@ -99,10 +107,9 @@ export class ProductListComponent implements OnInit {
             quantity: itemQuantity
         }
         
-        this.cartService.cartArray.push(itemObj);
+        this.cartArray.push(itemObj);
       }else{
-        // this.cartService.itemQuantity += 1;
-        this.cartService.cartArray[cartArrayId].quantity += 1;
+        this.cartArray[cartArrayId].quantity += 1;
       }
     }else{
       this.router.navigate(['/auth/login']);

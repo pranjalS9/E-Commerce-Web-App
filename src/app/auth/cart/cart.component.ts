@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data-service.service';
-import { IProduct } from '../models/IProduct';
 import { ICart } from '../models/ICart';
 import { CartService } from 'src/app/cart.service';
 
@@ -17,29 +16,32 @@ export class CartComponent implements OnInit {
 
   itemsInCartArray: ICart[] = this.cartService.cartArray;
   initialPrice: any = 0;
-  cartTotal: number = 0;
+  cartTotalPrice: number = 0;
+  totalCartItems: number = 0;
 
   ngOnInit(): void {
     for(let i=0; i<this.itemsInCartArray.length; i++){
-      this.cartTotal += this.itemsInCartArray[i].price;
+      this.cartTotalPrice += this.itemsInCartArray[i].price;
+    }
+    for(let i=0; i<this.itemsInCartArray.length; i++){
+      this.totalCartItems += this.itemsInCartArray[i].quantity;
     }
   }
 
   deselectAll(){
     this.cartService.cartArray.splice(0, this.cartService.cartArray.length);
-    this.cartService.totalElementsInCart = 0;
+    this.totalCartItems = 0;
+    // this.cartService.totalElementsInCart = 0;
   }
 
   incrementQuantity(id: number){
     this.dataService.getProductById(`${this.cartService.cartArray[id].id}`).subscribe(response => {
       if(response){
-        console.log(response)
         this.initialPrice = response
-        console.log(this.initialPrice)
-        console.log(this.initialPrice.price)
         this.itemsInCartArray[id].quantity += 1;
         this.itemsInCartArray[id].price += this.initialPrice.price;
-        this.cartTotal += this.initialPrice.price;
+        this.cartTotalPrice += this.initialPrice.price;
+        this.totalCartItems += 1;
       }
     })
   }
@@ -48,17 +50,15 @@ export class CartComponent implements OnInit {
   decrementQuantity(id: number){
     this.dataService.getProductById(`${this.cartService.cartArray[id].id}`).subscribe(response => {
       if(response){
-        console.log(response)
         this.initialPrice = response
-        console.log(this.initialPrice)
-        console.log(this.initialPrice.price)
         if(this.itemsInCartArray[id].quantity > 1){
           this.itemsInCartArray[id].quantity -= 1;
+          this.totalCartItems -= 1;
         }else{
           this.itemsInCartArray.splice(id, 1);
         }
         this.itemsInCartArray[id].price -= this.initialPrice.price;
-        this.cartTotal -= this.initialPrice.price;
+        this.cartTotalPrice -= this.initialPrice.price;
       }
     })
   }
@@ -66,5 +66,6 @@ export class CartComponent implements OnInit {
   onDeleteOne(id: number){
     this.cartService.cartArray.splice(id, 1);
     this.cartService.totalElementsInCart = this.cartService.totalElementsInCart - this.cartService.cartArray[id].quantity - 1;
+    this.totalCartItems -= 1;
   }
 }

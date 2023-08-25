@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data-service.service';
 import { IOrders } from '../models/IOrders';
 import { ICart } from '../models/ICart';
 import { CartService } from 'src/app/cart.service';
@@ -11,7 +10,6 @@ import { CartService } from 'src/app/cart.service';
 })
 export class OrdersComponent implements OnInit {
   constructor(
-    private dataService: DataService,
     private cartService: CartService
   ){}
   

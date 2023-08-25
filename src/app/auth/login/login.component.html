@@ -1,4 +1,3 @@
-<!-- <app-header></app-header> -->
 <app-main-header></app-main-header>
 <div class="login-form">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
@@ -9,7 +8,6 @@
           <mat-icon matSuffix>account_circle</mat-icon>
         </mat-form-field>
       </p>
-      <!-- <div *ngIf="errorMessage.usernameError == ''">{{errorMessage.usernameError}}</div> -->
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
@@ -17,7 +15,6 @@
           <mat-icon matSuffix>https</mat-icon>
         </mat-form-field>
       </p>
-      <!-- <div *ngIf="errorMessage.passwordError == ''">{{errorMessage.passwordError}}</div> -->
       <div class="login-btn">
         <button type="submit" mat-button>
           <span>Login</span>

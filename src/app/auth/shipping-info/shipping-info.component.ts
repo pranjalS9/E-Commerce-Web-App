@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { DataService } from '../../data-service.service';
 import { ICart } from '../models/ICart';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,7 +21,6 @@ export class ShippingInfoComponent implements OnInit {
   formGroup!: FormGroup;
 
   constructor(
-    private dataService: DataService,
     private cartService: CartService,
     public dialog: MatDialog,
     private formBuilder: FormBuilder
@@ -35,7 +33,6 @@ export class ShippingInfoComponent implements OnInit {
   }
   checkOutItems: ICart[] = this.cartService.cartArray
 
-  // shippingAddress: string = '';
   shippingInfoArray: DialogData = {
     name: '',
     email: '',
