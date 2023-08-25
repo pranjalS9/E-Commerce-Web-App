@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ICart } from '../models/ICart';
+import { ICart } from '../../models/ICart';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { CartService } from 'src/app/cart.service';
+import { CartService } from 'src/app/auth/Services/CartServices/cart.service';
 
 @Component({
   selector: 'app-order-summary',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IOrders } from '../models/IOrders';
-import { ICart } from '../models/ICart';
-import { CartService } from 'src/app/cart.service';
+import { IOrders } from '../../models/IOrders';
+import { ICart } from '../../models/ICart';
+import { CartService } from 'src/app/auth/Services/CartServices/cart.service';
 
 @Component({
   selector: 'app-orders',

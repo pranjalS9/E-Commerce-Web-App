@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataService } from '../../data-service.service';
-import { CartService } from 'src/app/cart.service';
-import { IProduct } from '../models/IProduct';
+import { DataService } from '../../Services/DataServices/data-service.service';
+import { CartService } from 'src/app/auth/Services/CartServices/cart.service';
+import { IProduct } from '../../models/IProduct';
 import { Subscription } from 'rxjs';
 import { defineComponents, IgcRatingComponent } from 'igniteui-webcomponents';
-import { ICart } from '../models/ICart';
+import { ICart } from '../../models/ICart';
 
 defineComponents(IgcRatingComponent);
 

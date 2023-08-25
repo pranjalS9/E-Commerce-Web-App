@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IErrorMessage } from 'src/app/auth/models/IErrorMessages';
 import { Router } from '@angular/router';
-import { DataService } from 'src/app/data-service.service';
+import { DataService } from 'src/app/auth/Services/DataServices/data-service.service';
 import { HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-login',
@@ -12,10 +11,6 @@ import { HttpHeaders } from '@angular/common/http';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
-  errorMessage: IErrorMessage = {
-    usernameError: '',
-    passwordError: ''
-  }
   userData: string = '';
 
   constructor(

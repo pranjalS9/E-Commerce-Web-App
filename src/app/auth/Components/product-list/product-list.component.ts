@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../models/IProduct';
-import { DataService } from '../../data-service.service';
+import { IProduct } from '../../models/IProduct';
+import { DataService } from '../../Services/DataServices/data-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ICart } from '../models/ICart';
+import { ICart } from '../../models/ICart';
 import { Router } from '@angular/router';
-import { CartService } from 'src/app/cart.service';
+import { CartService } from 'src/app/auth/Services/CartServices/cart.service';
 
 @Component({
   selector: 'app-product-list',

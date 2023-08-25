@@ -1,14 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ICart } from '../models/ICart';
+import { ICart } from '../../models/ICart';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { DialogData } from '../models/IDialogData';
-import { CartService } from 'src/app/cart.service';
+import { DialogData } from '../../models/IDialogData';
+import { CartService } from 'src/app/auth/Services/CartServices/cart.service';
 
 
 @Component({

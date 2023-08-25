@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ICart } from './auth/models/ICart';
+import { ICart } from '../../models/ICart';
 
 @Injectable({
   providedIn: 'root'

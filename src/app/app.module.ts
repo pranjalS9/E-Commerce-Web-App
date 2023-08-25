@@ -5,7 +5,7 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './auth/Components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,19 +19,19 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { MainHeaderComponent } from './auth/main-header/main-header.component';
-import { HomeComponent } from './auth/home/home.component';
-import { ProductListComponent } from './auth/product-list/product-list.component';
-import { ProductDetailsComponent } from './auth/product-details/product-details.component';
+import { MainHeaderComponent } from './auth/Components/main-header/main-header.component';
+import { HomeComponent } from './auth/Components/home/home.component';
+import { ProductListComponent } from './auth/Components/product-list/product-list.component';
+import { ProductDetailsComponent } from './auth/Components/product-details/product-details.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CartComponent } from './auth/cart/cart.component';
-import { CheckoutComponent } from './auth/checkout/checkout.component';
+import { CartComponent } from './auth/Components/cart/cart.component';
+import { CheckoutComponent } from './auth/Components/checkout/checkout.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgIf} from '@angular/common';
-import { ShippingInfoComponent } from './auth/shipping-info/shipping-info.component';
-import { PaymentDetailsComponent } from './auth/payment-details/payment-details.component';
-import { OrderSummaryComponent } from './auth/order-summary/order-summary.component';
-import { OrdersComponent } from './auth/orders/orders.component';
+import { ShippingInfoComponent } from './auth/Components/shipping-info/shipping-info.component';
+import { PaymentDetailsComponent } from './auth/Components/payment-details/payment-details.component';
+import { OrderSummaryComponent } from './auth/Components/order-summary/order-summary.component';
+import { OrdersComponent } from './auth/Components/orders/orders.component';
 
 
 @NgModule({
