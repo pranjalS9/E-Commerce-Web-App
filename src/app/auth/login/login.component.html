@@ -1,0 +1,27 @@
+<!-- <app-header></app-header> -->
+<app-main-header></app-main-header>
+<div class="login-form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input formControlName="username" matInput placeholder="Username">
+          <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+      </p>
+      <!-- <div *ngIf="errorMessage.usernameError == ''">{{errorMessage.usernameError}}</div> -->
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" matInput placeholder="Password">
+          <mat-icon matSuffix>https</mat-icon>
+        </mat-form-field>
+      </p>
+      <!-- <div *ngIf="errorMessage.passwordError == ''">{{errorMessage.passwordError}}</div> -->
+      <div class="login-btn">
+        <button type="submit" mat-button>
+          <span>Login</span>
+        </button>
+      </div>
+  </form>
+</div>

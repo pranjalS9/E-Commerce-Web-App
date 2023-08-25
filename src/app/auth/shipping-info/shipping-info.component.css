@@ -1,0 +1,50 @@
+.main{
+    position: absolute;
+    margin-top: 4.05rem;
+    width: 100%;
+    background-color: white;
+    margin: 0;
+    margin-right: 2rem;
+    padding: 2rem;
+    margin-left: -1rem;
+}
+.address-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.9rem;
+}
+.address-heading{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+.address-details{
+    margin-top: 0.5rem;
+}
+.info{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    line-height: 5rem;
+    /* text-align: center; */
+}
+table{
+    width: 100%;
+    line-height: 5rem;
+}
+td{
+    width: 50%;
+}
+.container-3{
+    display: flex;
+    justify-content: space-between;
+}
+ng-template{
+    height: 100%;
+}
+.form-container{
+    width: 100%;
+}
+.form-container mat-form-field{
+    margin-right: 2rem;
+}

@@ -1,0 +1,66 @@
+<app-main-header></app-main-header>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="product-details">
+    <mat-card *ngIf="product">
+        <mat-card-content>
+            <div class="details-conatiner">
+                <div class="image"><img [src]="product.image" alt=""></div>
+                <div class="details">
+                    <div class="title">{{ product.title }}</div>
+                    <div class="rating">
+                        <div class="rating-value">{{ product.rating.rate }}</div>
+                        <div class="rating-star">
+                            <igc-rating value="ratingVal" min="0" [max]="product.rating.rate" ></igc-rating>
+                        </div>
+                    </div>
+                    <div class="price">Price: <span class="price-amt">{{ product.price | currency }}</span></div>
+                    <hr>
+                    <div class="description">
+                        <div class="about-title">About this item</div>
+                        <div class="about">
+                            {{ product.description }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-2">
+                <div class="additional-images"></div>
+                <div class="buy-options">
+                    <div class="add-to-cart" (click)="addToCart()">
+                        <button mat-button>
+                            <span>Add To Cart</span>
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                    </div>
+                    <div class="buy-now" (click)="goCheckOut()">
+                        <button mat-button>
+                            <span>Buy Now</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="similar-items-container">
+                <!-- <mat-card *ngFor="let product of relatedProducts; index as i">
+                    <mat-card-content>
+                        <div class="product-details">
+                            <div class="image"><img [src]="product?.image" alt=""></div>
+                            <div class="title" [routerLink]="['/product-details', product.id]">
+                                <a>
+                                    {{product?.title}}
+                                </a>
+                            </div>
+                            <div class="bottom-container">
+                                <div class="price">{{product?.price | currency}}</div>
+                                <div class="add-to-cart" (click)="addToCart(product)">
+                                    <mat-icon>add_shopping_cart</mat-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card> -->
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,71 @@
+.main{
+    position: absolute;
+    margin-top: 4.05rem;
+    width: 100%;
+}
+.payment-heading{
+    font-size: 1rem;
+    font-weight: 600;
+    color: brown;
+    margin-bottom: 1rem;
+    background-color: rgb(237, 235, 235);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* Add margin and padding to create spacing between form fields */
+.form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the label element */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Style the input and select elements */
+  input, select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Style the submit button */
+  button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .payment-details-container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .left-pane{
+    width: 80%;
+  }
+  .right-pane{
+    width: 50%;
+  }
+.vertical-line{
+    border-left: 2px solid rgb(217, 215, 215);
+    height: 27rem;
+}
+.right-pane{
+    padding: 1rem;
+}
+img{
+    width: 150px;
+    height: 100px;
+}
+.error-message{
+  color: red;
+  font-size: 0.6rem;
+}
