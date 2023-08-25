@@ -1,6 +1,8 @@
-/* .summary{
-    align-items: center;
-} */
+.outer-card{
+    position: absolute;
+    margin-top: 4.05rem;
+    width: 100%;
+}
 .inner-card{
     /* align-items: center; */
     width: 50%;

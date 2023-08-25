@@ -9,9 +9,10 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
 
+  loginForm!: FormGroup;
   userData: string = '';
+  isInvalidUser: boolean = false;
 
   constructor(
     private dataService: DataService,
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error => {
-          console.log("Username or password is invalid")
+          this.isInvalidUser = true;
         }
       )
     }

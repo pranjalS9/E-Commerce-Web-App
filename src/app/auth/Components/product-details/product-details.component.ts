@@ -76,7 +76,6 @@ export class ProductDetailsComponent implements OnInit {
         }
       }
       if(isExistProduct == false){
-
         let itemObj: ICart = {
             id: this.product.id,
             title: this.product.title,
@@ -91,7 +90,7 @@ export class ProductDetailsComponent implements OnInit {
         this.cartArray.push(itemObj);
       }else{
         this.cartArray[cartArrayId].quantity += 1;
-        
+        this.cartArray[cartArrayId].price += this.product.price;
       }
     }else{
       this.router.navigate(['/auth/login']);

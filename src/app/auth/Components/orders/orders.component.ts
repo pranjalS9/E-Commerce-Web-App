@@ -29,6 +29,7 @@ export class OrdersComponent implements OnInit {
         buyerName: 'Pranjal'
       }
     ]
+    this.cartService.cartArray = [];
   }
 
   generateRandomHash(length: number): string {

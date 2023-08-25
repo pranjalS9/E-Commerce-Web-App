@@ -35,6 +35,7 @@ export class ProductListComponent implements OnInit {
   selectedProducts: IProduct[] = [];
   currentCategory: string = '';
   totalItemsInCart: number = 0;
+  initialPrice: number = 0;
   cartArray: ICart[] = this.cartService.cartArray;
 
 
@@ -59,14 +60,6 @@ export class ProductListComponent implements OnInit {
     })
   }
 
-  getTotalElementsOfCart(): number {
-    for(let i=0; i<this.cartArray.length; i++){
-      this.totalItemsInCart += this.cartArray[i].quantity;
-    }
-    return this.totalItemsInCart;
-  }
-
-  // to dynamically set the form control value.
   changeCategory(e: any){
     this.currentCategory = e.target.value;
     this.category?.setValue(e.target.value, {
@@ -95,7 +88,6 @@ export class ProductListComponent implements OnInit {
       }
       if(isExistProduct == false){
 
-        let itemQuantity = this.totalItemsInCart;
         let itemObj: ICart = {
             id: product.id,
             title: product.title,
@@ -104,12 +96,13 @@ export class ProductListComponent implements OnInit {
             image: product.image,
             description: product.description,
             rating: product.rating,
-            quantity: itemQuantity
+            quantity: 1
         }
         
         this.cartArray.push(itemObj);
       }else{
         this.cartArray[cartArrayId].quantity += 1;
+        this.cartArray[cartArrayId].price += product.price;
       }
     }else{
       this.router.navigate(['/auth/login']);
