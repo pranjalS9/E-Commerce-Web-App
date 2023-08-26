@@ -13,55 +13,46 @@
                             <form [formGroup]="paymentForm">
                                 <div class="form-group">
                                     <label>Card Number</label>
-                                    <input type="text" formControlName="cardNumber" placeholder="Card Number" required>
-                                    <div *ngIf="paymentForm.get('cardNumber')?.hasError('required') && paymentForm.get('cardNumber')?.touched" class="error-message">
-                                        *Card Number is required
-                                    </div>
-                                    <div *ngIf="paymentForm.get('cardNumber')?.hasError('minlength') && paymentForm.get('cardNumber')?.touched" class="error-message">
-                                        *Card Number must be at least 12 digits long
+                                    <input type="text" formControlName="cardNumber" placeholder="Card Number">
+                                    <div *ngIf="isInvalid('cardNumber') !== ''" class="error-message">
+                                        {{isInvalid('cardNumber')}}
                                     </div>
                                 </div>
                               
                                 <div class="form-group">
                                   <label>Name on Card</label>
-                                  <input type="text" formControlName="nameOnCard" placeholder="Name on Card" required>
-                                  <div *ngIf="paymentForm.get('nameOnCard')?.hasError('required') && paymentForm.get('nameOnCard')?.touched" class="error-message">
-                                    *Name is required
+                                  <input type="text" formControlName="nameOnCard" placeholder="Name on Card">
+                                  <div *ngIf="isInvalid('nameOnCard') !== ''" class="error-message">
+                                    {{isInvalid('nameOnCard')}}
                                   </div>
                                 </div>
                               
                                 <div class="form-group">
                                   <label>Security Code (CVV)</label>
-                                  <input type="text" formControlName="securityCode" placeholder="CVV" required>
-                                  <div *ngIf="paymentForm.get('securityCode')?.hasError('required') && paymentForm.get('securityCode')?.touched" class="error-message">
-                                    *CVV/CVC is required
-                                  </div>
-                                  <div *ngIf="paymentForm.get('cardNumber')?.hasError('minlength') && paymentForm.get('cardNumber')?.touched" class="error-message">
-                                    *CVV/CVC Number must be of 3 digits
-                                  </div>
-                                  <div *ngIf="paymentForm.get('cardNumber')?.hasError('maxlength') && paymentForm.get('cardNumber')?.touched" class="error-message">
-                                    *CVV/CVC Number must be of 3 digits
-                                  </div>
+                                  <input type="text" formControlName="securityCode" placeholder="CVV">
+                                  <div *ngIf="isInvalid('securityCode') !== ''" class="error-message">
+                                    {{isInvalid('securityCode')}}
+                                  </div>  
                                 </div>
                               
                                 <div class="form-group">
                                   <label>Expiration Date</label>
-                                  <select formControlName="expirationMonth" required>
+                                  <select formControlName="expirationMonth">
                                     <option value="" disabled>Select Month</option>
                                     <option *ngFor="let month of months" [value]="month">{{ month }}</option>
                                   </select>
-                                  <div *ngIf="paymentForm.get('expirationMonth')?.hasError('required') && paymentForm.get('expirationMonth')?.touched" class="error-message">
-                                    *Expiration Month is required
+                                  <div *ngIf="isInvalid('expirationMonth') !== ''" class="error-message">
+                                    {{isInvalid('expirationMonth')}}
                                   </div>
                                 </div>
                               
                                 <div class="form-group">
-                                  <select formControlName="expirationYear" required>
+                                  <select formControlName="expirationYear">
                                     <option value="" disabled>Select Year</option>
                                     <option *ngFor="let year of years" [value]="year">{{ year }}</option>
                                   </select>
-                                  <div *ngIf="paymentForm.get('expirationYear')?.hasError('required') && paymentForm.get('expirationYear')?.touched" class="error-message">
-                                    *Expiration Year is required
+                                  <div *ngIf="isInvalid('expirationYear') !== ''" class="error-message">
+                                    {{isInvalid('expirationYear')}}
                                   </div>
                                 </div>
                               

@@ -15,20 +15,20 @@ export class AuthService {
     private router: Router
   ) { }
 
-  // loginUrl = 'https://fakestoreapi.com/auth/login';
+  loginUrl = 'https://fakestoreapi.com/auth/login';
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
   }
-  // postUserToken(userData: string):Observable<any>{
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json'
-  //     })
-  //   };
-  //   return this.http.post<any>(this.loginUrl, userData, httpOptions);
-  // }
+  postUserToken(userData: string):Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.post<any>(this.loginUrl, userData, httpOptions);
+  }
   
   // isAuthenticated(userData: string): boolean {
   //   let isValidUser = false;

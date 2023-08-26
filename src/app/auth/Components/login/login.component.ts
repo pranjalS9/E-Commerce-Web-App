@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/product/DataServices/data-service.service';
 import { HttpHeaders } from '@angular/common/http';
-import { AuthService } from '../../AuthServices/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,8 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private fb: FormBuilder,
-    private router: Router,
-    private authService: AuthService
+    private router: Router
   ) {}
 
   httpOptions = {
@@ -41,12 +39,6 @@ export class LoginComponent implements OnInit {
         username: `${loginForm.value.username}`,
         password: `${loginForm.value.password}`
       })
-      // let isValidUser: boolean = this.authService.isAuthenticated(this.userData);
-      // if(isValidUser){
-      //   this.router.navigate(['/']);
-      // }else{
-      //   this.isInvalidUser = true;
-      // }
       this.dataService.postUserToken(this.userData).subscribe(
         response => {
           console.log(response)

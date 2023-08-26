@@ -101,6 +101,36 @@ export class DialogOverviewExampleDialog {
     
   }
 
+  isInvalid(field: string): string {
+    if(field == 'contactNumber'){
+      if(this.shippingForm.get(field)?.hasError('pattern') && this.shippingForm.get(field)?.touched){
+        return `Invalid contact number format`;
+      }else if(this.shippingForm.get(field)?.hasError('required') && this.shippingForm.get(field)?.touched){
+        return  '*Contact number is required';
+      }
+    }else if(field == 'email'){
+      if(this.shippingForm.get(field)?.hasError('email') && this.shippingForm.get(field)?.touched){
+        return '*Invalid email format';
+      }else if(this.shippingForm.get(field)?.hasError('required') && this.shippingForm.get(field)?.touched){
+        return ' *Email is required';
+      }
+    }else if(field == 'pincode'){
+      if(this.shippingForm.get(field)?.hasError('pattern') && this.shippingForm.get(field)?.touched){
+        return '*Pincode must be a 6-digit number';
+      }else if(this.shippingForm.get(field)?.hasError('required') && this.shippingForm.get(field)?.touched){
+        return ' *Pincode is required';
+      }
+    }else if(field == 'name' && this.shippingForm.get(field)?.hasError('required') && this.shippingForm.get(field)?.touched){
+      return '*Name is required';
+    }else if(field == 'address' && this.shippingForm.get(field)?.hasError('required') && this.shippingForm.get(field)?.touched){
+      return '*Address Month is required';
+    }else if(field == 'city' && this.shippingForm.get(field)?.hasError('required') && this.shippingForm.get(field)?.touched){
+      return '*City is required';
+    }else if(field == 'state' && this.shippingForm.get(field)?.hasError('required') && this.shippingForm.get(field)?.touched){
+      return '*State is required';
+    }
+    return '';
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
