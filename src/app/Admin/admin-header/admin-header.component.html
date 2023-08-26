@@ -1,0 +1,23 @@
+<div class="main-header-nav">
+    <div class="title" routerLink="/">
+            <mat-toolbar>
+              <span>Shopzana</span>
+            </mat-toolbar>
+    </div>
+    <div class="signin-nav">
+            <div class="admin" *ngIf="username && username!==''">
+                Hello, {{username}}
+            </div>
+            <div class="your-orders">
+                <a routerLink="/admin/home/products">Products</a>
+            </div>
+            <div class="your-orders">
+                <a routerLink="/admin/home/users">Users</a>
+            </div>
+            
+          <div class="logout">
+                <a (click)="onLogout()">Logout</a>
+          </div>
+
+    </div>
+</div>

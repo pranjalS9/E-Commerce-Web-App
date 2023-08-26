@@ -44,7 +44,12 @@ export class LoginComponent implements OnInit {
           console.log(response)
           localStorage.setItem('token', response.token);
           localStorage.setItem('username', `${loginForm.value.username}`);
-          this.router.navigate(['/']);
+          if(`${loginForm.value.username}` == 'johnd' && `${loginForm.value.password}` == 'm38rmF$'){
+            console.log('reached')
+            this.router.navigate(['/admin/home']);
+          }else{
+            this.router.navigate(['/']);
+          }
         },
         error => {
           this.isInvalidUser = true;

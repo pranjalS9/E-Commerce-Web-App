@@ -1,0 +1,39 @@
+<div class="products-container">
+    <app-admin-header></app-admin-header>
+    <div class="products-display-container">
+        <mat-card>
+            <mat-card-content>
+                <h1>PRODUCTS</h1>
+                <div class="product-list">
+                    <table class="outer-table">
+                        <tr class="outer-heading">
+                            <th>ProductId</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Categroy</th>
+                            <th>Image</th>
+                            <th>Rate</th>
+                            <th>Count</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr *ngFor="let product of productsArray; index as i">
+                            <td>{{product.id}}</td>
+                            <td>{{product.title}}</td>
+                            <td>{{product.price | currency}}</td>
+                            <td>{{product.description}}</td>
+                            <td>{{product.category}}</td>
+                            <td><img [src]="product.image" alt="product.category"></td>
+                            <td>{{product.rating.rate}}</td>
+                            <td>{{product.rating.count}}</td>
+                            <td>
+                                <mat-icon (click)="onDelete(i)">delete</mat-icon>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

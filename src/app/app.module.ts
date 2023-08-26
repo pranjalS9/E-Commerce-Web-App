@@ -33,6 +33,10 @@ import { ShippingInfoComponent } from './payment/Components/shipping-info/shippi
 import { PaymentDetailsComponent } from './payment/Components/payment-details/payment-details.component';
 import { OrderSummaryComponent } from './payment/Components/order-summary/order-summary.component';
 import { OrdersComponent } from './order/Components/orders/orders.component';
+import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
+import { AdminHeaderComponent } from './Admin/admin-header/admin-header.component';
+import { AdminProductsComponent } from './Admin/admin-products/admin-products.component';
+import { AdminUsersComponent } from './Admin/admin-users/admin-users.component';
 
 
 @NgModule({
@@ -48,7 +52,11 @@ import { OrdersComponent } from './order/Components/orders/orders.component';
     ShippingInfoComponent,
     PaymentDetailsComponent,
     OrderSummaryComponent,
-    OrdersComponent
+    OrdersComponent,
+    AdminHomeComponent,
+    AdminHeaderComponent,
+    AdminProductsComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,

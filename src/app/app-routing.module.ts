@@ -9,11 +9,26 @@ import { CheckoutComponent } from './cart/Components/checkout/checkout.component
 import { PaymentDetailsComponent } from './payment/Components/payment-details/payment-details.component';
 import { OrderSummaryComponent } from './payment/Components/order-summary/order-summary.component';
 import { OrdersComponent } from './order/Components/orders/orders.component';
+import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
+import { AdminProductsComponent } from './Admin/admin-products/admin-products.component';
+import { AdminUsersComponent } from './Admin/admin-users/admin-users.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'admin/home',
+    component: AdminHomeComponent
+  },
+  {
+    path: 'admin/home/products',
+    component: AdminProductsComponent
+  },
+  {
+    path: 'admin/home/users',
+    component: AdminUsersComponent
   },
   {
     path: 'auth/login',
