@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
     private cartService: CartService
   ){}
 
+  itemsQuantityInCartArray: number = 0;
   itemsInCartArray: ICart[] = this.cartService.cartArray;
   productsArray: IProduct[] = [];
   initialPrice: any = 0;
@@ -23,30 +24,43 @@ export class CartComponent implements OnInit {
   productTotalPrice: number = 0;
 
   ngOnInit(): void {
-    this.getCartTotalPrice();
-    this.getTotalCartItems();
+    this.cartTotalPrice = this.cartService.getCartTotalPrice();
+    this.totalCartItems = this.cartService.getTotalCartItems();
+    this.getTotalQuantity();
+    // this.getCartTotalPrice();
+    // this.getTotalCartItems();
   }
 
-  getCartTotalPrice(): number {
-    for(let i=0; i<this.itemsInCartArray.length; i++){
-      this.cartTotalPrice += (this.itemsInCartArray[i].price);
-    }
-    return this.cartTotalPrice;
-  }
+  // getCartTotalPrice(): number {
+  //   for(let i=0; i<this.itemsInCartArray.length; i++){
+  //     this.cartTotalPrice += (this.itemsInCartArray[i].price);
+  //   }
+  //   return this.cartTotalPrice;
+  // }
 
-  getTotalCartItems(): number {
-    for(let i=0; i<this.itemsInCartArray.length; i++){
-      this.totalCartItems += this.itemsInCartArray[i].quantity;
+  // getTotalCartItems(): number {
+  //   for(let i=0; i<this.itemsInCartArray.length; i++){
+  //     this.totalCartItems += this.itemsInCartArray[i].quantity;
+  //   }
+  //   return this.totalCartItems;
+  // }
+
+  getTotalQuantity(): number {
+    for(let i=0; i<this.cartService.cartArray.length; i++){
+      this.itemsQuantityInCartArray += this.cartService.cartArray[i].quantity;
     }
-    return this.totalCartItems;
+    return this.itemsQuantityInCartArray;
   }
 
   deselectAll(){
-    this.cartService.cartArray.splice(0, this.cartService.cartArray.length);
+    // this.cartService.cartArray.splice(0, this.cartService.cartArray.length);
+    this.cartService.emptyCart();
     this.totalCartItems = 0;
     this.cartTotalPrice = 0;
+
   }
 
+  
   incrementQuantity(id: number){
     this.dataService.getProductById(`${this.cartService.cartArray[id].id}`).subscribe(response => {
       if(response){

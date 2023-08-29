@@ -10,22 +10,21 @@ import { CartService } from 'src/app/cart/CartServices/cart.service';
 })
 export class CheckoutComponent implements OnInit{
 
-  checkOutItems: ICart[] = this.cartService.cartArray
-  totalItemsInCart: number = 0;
+  totalItemsQuantityInCart: number = 0;
 
   constructor(
     public cartService: CartService
   ){}
 
   ngOnInit(): void {
-    this.totalItemsInCart = this.getTotalItems();
+    this.totalItemsQuantityInCart = this.getTotalQuantity();
   }
 
-  getTotalItems(): number {
-    for(let i=0; i<this.checkOutItems.length; i++){
-      this.totalItemsInCart += this.checkOutItems[i].quantity;
+  getTotalQuantity(): number {
+    for(let i=0; i<this.cartService.cartArray.length; i++){
+      this.totalItemsQuantityInCart += this.cartService.cartArray[i].quantity;
     }
-    return this.totalItemsInCart;
+    return this.totalItemsQuantityInCart;
   }
 }
 

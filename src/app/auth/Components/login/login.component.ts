@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/product/DataServices/data-service.service';
 import { HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../../AuthServices/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
+    private authService: AuthService,
     private fb: FormBuilder,
     private router: Router
   ) {}
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
         username: `${loginForm.value.username}`,
         password: `${loginForm.value.password}`
       })
-      this.dataService.postUserToken(this.userData).subscribe(
+      this.authService.postUserToken(this.userData).subscribe(
         response => {
           console.log(response)
           localStorage.setItem('token', response.token);

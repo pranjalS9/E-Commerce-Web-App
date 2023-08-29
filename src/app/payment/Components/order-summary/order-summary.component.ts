@@ -19,9 +19,10 @@ export class OrderSummaryComponent implements OnInit {
   totalItemsToBuy: ICart[] = this.cartService.cartArray
 
   ngOnInit(): void {
-    for(let i=0; i<this.totalItemsToBuy.length; i++){
-      this.cartTotal += this.totalItemsToBuy[i].price;
-    }
+    // for(let i=0; i<this.totalItemsToBuy.length; i++){
+    //   this.cartTotal += this.totalItemsToBuy[i].price;
+    // }
+    this.cartTotal = this.cartService.getCartTotalPrice();
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {

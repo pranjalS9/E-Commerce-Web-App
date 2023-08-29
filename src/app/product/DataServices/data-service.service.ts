@@ -19,13 +19,6 @@ export class DataService {
   getProductById(id: string): Observable<IProduct[]>{
     return this.http.get<IProduct[]>(this.productsUrl + id);
   }
-  postUserToken(userData: string):Observable<any>{
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    return this.http.post<any>(this.loginUrl, userData, httpOptions);
-  }
+  
 }
 

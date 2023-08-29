@@ -44,7 +44,7 @@
                 <mat-card-content>
                     <div class="subtotal-container">
                         <div class="subtotal">
-                            Subtotal({{itemsInCartArray.length}}): <span class="total-amount">{{ cartTotalPrice | currency:'INR' }}</span>
+                            Subtotal({{itemsQuantityInCartArray}}): <span class="total-amount">{{ cartTotalPrice | currency:'INR' }}</span>
                         </div>
                         <div class="proceed">
                             <button mat-button class="proceed-btn"><a routerLink="/checkout">Proceed To Checkout</a></button>
