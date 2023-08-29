@@ -1,4 +1,4 @@
-<app-main-header></app-main-header>
+
 <mat-card class="main-container">
     <mat-card-content>
         <div class="orders-heading">
@@ -22,7 +22,7 @@
                                 TOTAL
                             </div>
                             <div class="order-placed-total">
-                                {{orderTotal | currency}}
+                                {{orderTotal | currency:'INR'}}
                             </div>
                         </div>
                         <div class="customer-container">

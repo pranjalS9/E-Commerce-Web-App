@@ -1,4 +1,4 @@
-<app-main-header></app-main-header>
+
 <mat-card class="outer-card">
     <mat-card-content>
         <div class="summary-heading">
@@ -13,7 +13,7 @@
                             items ({{totalItemsToBuy.length}}):
                         </div>
                         <div class="items-amount">
-                            {{cartTotal | currency}}
+                            {{cartTotal | currency:'INR'}}
                         </div>
                     </div>
                     <div class="shipping">
@@ -53,7 +53,7 @@
                             Order total
                         </div>
                         <div class="total-amount">
-                            {{cartTotal | currency}}
+                            {{cartTotal | currency:'INR'}}
                         </div>
                     </div>
 

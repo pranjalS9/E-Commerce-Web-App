@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/models/IProduct';
 import { AdminServicesService } from '../admin-services.service';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, FormArray } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -17,7 +17,7 @@ import { IAdminAddDialog } from '../models/IAdminAddProductDialog';
 export class AdminProductsComponent implements OnInit {
   products!: IProduct[];
   editIndex: number = -1;
-  editForms!: FormGroup[];
+  editForms: FormGroup[] = [];
   isGettingEditted: boolean = false;
   formGroup!: FormGroup;
 
@@ -39,6 +39,20 @@ export class AdminProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
+
+    // this.products.forEach(prod => {
+    //   const form = this.fb.group({
+    //     title: [prod.title],
+    //     price: [prod.title],
+    //     description: [prod.description],
+    //     category: [prod.category],
+    //     image: [prod.image],
+    //     rate: [prod.rating.rate],
+    //     count: [prod.rating.count]
+    //   })
+    //   this.editForms.push(form)
+    // })
+    
   }
 
 
@@ -53,16 +67,12 @@ export class AdminProductsComponent implements OnInit {
   onEdit(index: number): void {
     this.isGettingEditted = !this.isGettingEditted;
     this.editIndex = index;
-    
   }
 
-  onSave(index: number): void {
-    const updatedProduct: IProduct[] = this.editForms[index].value;
-    
-    this.adminServices.updateProduct(updatedProduct).subscribe(updatedProducts => {
-      this.products = updatedProducts; 
-      this.editIndex = -1; 
-    });
+  onSave(index: number){
+    this.products[index] = this.editForms[index].value;
+    this.isGettingEditted = false;
+    this.editIndex = -1;
   }
 
   onDelete(id: number): void {

@@ -1,4 +1,4 @@
-<app-main-header></app-main-header>
+
 <div class="cart-container">
     <mat-card>
         <mat-card-content>
@@ -20,7 +20,7 @@
                             <div class="image"><img [src]="item.image" alt=""></div>
                             <div class="details">
                                 <div class="title">{{item.title}}</div>
-                                <div class="price">{{ item.price | currency }}</div>
+                                <div class="price">{{ item.price | currency:'INR' }}</div>
                                 <div class="availability">In Stock</div>
                                 <div class="second-container">
                                     <div class="quantity">
@@ -44,7 +44,7 @@
                 <mat-card-content>
                     <div class="subtotal-container">
                         <div class="subtotal">
-                            Subtotal({{itemsInCartArray.length}}): <span class="total-amount">{{ cartTotalPrice | currency }}</span>
+                            Subtotal({{itemsInCartArray.length}}): <span class="total-amount">{{ cartTotalPrice | currency:'INR' }}</span>
                         </div>
                         <div class="proceed">
                             <button mat-button class="proceed-btn"><a routerLink="/checkout">Proceed To Checkout</a></button>
