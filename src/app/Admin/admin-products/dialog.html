@@ -1,0 +1,40 @@
+<div class="form-container">
+    <div mat-dialog-content>
+        <p>Add New Product</p>
+        <form [formGroup]="productForm">
+        
+              <label>Title</label>
+              <input formControlName="title">
+          
+        
+              <label>Price</label>
+              <input formControlName="price">
+          
+        
+              <label>Description</label>
+              <input formControlName="description">
+          
+        
+              <label>Categroy</label>
+              <input formControlName="category">
+          
+        
+              <label>Image</label>
+              <input formControlName="image" type="file" (change)="onImageChange($event)" >
+          
+        
+              <label>Rate</label>
+              <input formControlName="rate">
+          
+        
+              <label>Count</label>
+              <input formControlName="count">
+          
+        </form>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-button (click)="onAddProduct()" [mat-dialog-close]="productForm.value" cdkFocusInitial [disabled]="!productForm.valid">Add</button>
+      </div>
+</div>
+

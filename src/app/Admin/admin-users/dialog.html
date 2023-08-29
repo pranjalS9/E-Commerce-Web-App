@@ -1,0 +1,48 @@
+<div class="form-container">
+    <div mat-dialog-content>
+        <p>Add New User</p>
+        <form [formGroup]="userForm">
+        
+              <label>Id</label>
+              <input formControlName="id">
+          
+        
+              <label>Username</label>
+              <input formControlName="username">
+          
+        
+              <label>First Name</label>
+              <input formControlName="firstname">
+
+              <label>Last Name</label>
+              <input formControlName="lastname">
+          
+        
+              <label>email</label>
+              <input formControlName="email">
+          
+        
+              <label>Street number</label>
+              <input formControlName="number">
+
+              <label>Street name</label>
+              <input formControlName="street">
+
+              <label>City number</label>
+              <input formControlName="city">
+
+              <label>Zipcode</label>
+              <input formControlName="zipcode">
+          
+        
+              <label>phone</label>
+              <input formControlName="phone">
+          
+        </form>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-button (click)="onAddUser()" [mat-dialog-close]="userForm.value" cdkFocusInitial [disabled]="!userForm.valid">Add</button>
+      </div>
+</div>
+

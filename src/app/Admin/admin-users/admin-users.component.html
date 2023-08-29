@@ -1,1 +1,76 @@
-<p>admin-users works!</p>
+<div class="users-container">
+    <app-admin-header></app-admin-header>
+    <div class="users-display-container">
+        <mat-card>
+            <mat-card-content>
+                <h1>USERS</h1>
+                <div class="add-container">
+                    <button class="add-btn" (click)="openDialog()">
+                        + Add user
+                    </button>
+                    
+                </div>
+                <div class="user-list">
+                    <form >
+                        <table class="outer-table">
+                            <tr class="outer-heading">
+                                <th>Id</th>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                            <tr *ngFor="let user of users; index as i">
+                                <ng-container *ngIf="!isGettingEditted && editIndex !== i || !isGettingEditted && editIndex == i" >
+                                    <td>{{user.id}}</td>
+                                    <td>{{user.username}}</td>
+                                    <td>{{user.name.firstname + " " + user.name.lastname}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td>{{user.address.number + ',' + user.address.street + ',' + user.address.city + ',' + user.address.zipcode }}</td>
+                                    <td>{{user.phone}}</td>
+                                    <td>
+                                        <mat-icon (click)="onEdit(i)" class="operation">edit</mat-icon>
+                                    </td>
+                                    <td>
+                                        <mat-icon (click)="onDelete(i)" class="operation">delete</mat-icon>
+                                    </td>
+                                </ng-container>
+                                <ng-container *ngIf="isGettingEditted && editIndex == i">
+                                    <td>{{user.id}}</td>
+                                    <td>
+                                        <input type="text" [value]="user.username">
+                                    </td>
+                                    <td>
+                                        <input type="string" [value]="user.name.firstname + ' ' + user.name.lastname">
+                                    </td>
+                                    <td>
+                                        <input type="email" [value]="user.email">
+                                    </td>
+                                    <td>
+                                        <textarea type="string" [value]="user.address.number + ',' + user.address.street + ',' + user.address.city + ',' + user.address.zipcode"></textarea>
+                                    </td>
+                                    <td>
+                                        <input type="string" [value]="user.phone">
+                                    </td>
+                                    <td>
+                                        <mat-icon (click)="onEdit(i)" class="operation">save</mat-icon>
+                                    </td>
+                                    <td>
+                                        <mat-icon (click)="onDelete(i)" class="operation">delete</mat-icon>
+                                    </td>
+                                </ng-container>
+                            </tr>
+                            
+                        </table>
+                    </form>
+                    
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+  
