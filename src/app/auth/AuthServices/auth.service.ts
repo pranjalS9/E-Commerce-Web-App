@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from '../../../environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,32 +16,51 @@ export class AuthService {
     private router: Router
   ) { }
 
-  loginUrl = 'https://fakestoreapi.com/auth/login';
+  loginUrl = environment.loginUrl;
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
   }
-  postUserToken(userData: string):Observable<any>{
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+  login(username: string, password: string): Observable<any> {
+    const userData = JSON.stringify({
+      username: username,
+      password: password
+    });
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post<any>(this.loginUrl, userData, httpOptions);
+    return this.http.post<any>(this.loginUrl, userData, httpOptions).pipe(
+      map(response => {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('username', username);
+        return response;
+      })
+    );
+  }
+  logout(): void {
+    localStorage.clear();
   }
   
-  // isAuthenticated(userData: string): boolean {
-  //   let isValidUser = false;
-  //   this.postUserToken(userData).subscribe(
-  //     response => {
-  //       console.log(response)
-  //       localStorage.setItem('token', response.token);
-  //       // localStorage.setItem('username', `${userData.username}`);
-  //       this.router.navigate(['/']);
-  //       isValidUser = true;
-  //     }
-  //   )
-  //   return isValidUser;
-  // }
+  isLoggedIn(): boolean {
+    if(localStorage.getItem('token') && localStorage.getItem('token') !== ''){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  getUsername(): string | null{
+    if(this.isLoggedIn()){
+      return localStorage.getItem('username');
+    }
+    else {
+      return '';
+    };
+  }
 }

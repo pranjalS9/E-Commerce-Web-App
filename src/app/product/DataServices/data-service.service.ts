@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProduct } from '../../models/IProduct';
+import { environment } from 'src/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  productsUrl = 'https://fakestoreapi.com/products/';
-  loginUrl = 'https://fakestoreapi.com/auth/login';
+  productsUrl = environment.productsUrl;
+  loginUrl = environment.loginUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +20,8 @@ export class DataService {
   getProductById(id: string): Observable<IProduct[]>{
     return this.http.get<IProduct[]>(this.productsUrl + id);
   }
-  
+  getSelectedProducts(category: string): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(this.productsUrl + category);
+  }
 }
 

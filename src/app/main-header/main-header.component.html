@@ -1,0 +1,35 @@
+<div class="main-header-nav">
+    <div class="title" routerLink="/">
+            <mat-toolbar>
+              <span>Shopzana</span>
+            </mat-toolbar>
+    </div>
+    <div class="signin-nav" *ngIf="this.authService.isLoggedIn()">
+            <div class="user" *ngIf="this.authService.getUsername() && this.authService.getUsername()!==''">
+                Hello, {{this.authService.getUsername()}}
+            </div>
+            <div class="your-orders">
+                <a routerLink="/orders">Your Orders</a>
+            </div>
+            <div class="cart" *ngIf="this.cartService.getCart().length > 0">
+                <a routerLink="/cart" class="cart-icon">
+                    <mat-icon [matBadge]="this.cartService.getItemsQuantityInCart()" matBadgeColor="warn">shopping_cart</mat-icon>
+                </a>
+            </div>
+            <div class="cart" *ngIf="this.cartService.getCart().length == 0">
+                <a routerLink="/cart" class="cart-icon">
+                    <mat-icon [matBadge]="0" matBadgeColor="warn">shopping_cart</mat-icon>
+                </a>
+            </div>
+            
+          <ng-container class="logout">
+                <a (click)="onLogout()">Logout</a>
+          </ng-container>
+
+    </div>
+    <div class="signin-nav" *ngIf="!this.authService.isLoggedIn()">
+      <ng-container class="login" *ngIf="!isLoggedIn">
+            <a routerLink="/auth/login">Login</a>
+      </ng-container>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../DataServices/data-service.service';
 import { CartService } from 'src/app/cart/CartServices/cart.service';
@@ -30,7 +30,7 @@ export class ProductDetailsComponent implements OnInit {
   relatedProducts!: IProduct[];
   relatedProductCategory: string = '';
   totalItemsInCart: number = 0;
-  cartArray: ICart[] = this.cartService.cartArray;
+  cartArray: ICart[] = this.cartService.getCart();
 
 
   ngOnInit(): void {

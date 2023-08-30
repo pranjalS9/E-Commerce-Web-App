@@ -1,22 +1,9 @@
 
 <div class="main-container">
-  <ng-container class="error-container" *ngIf="isInvalidUser">
-    <mat-card class="error-container">
-      <mat-card-content>
-        <div class="alert">
-          <mat-icon>warning</mat-icon>
-          Incorrect Username or Password
-        </div>
-        <div class="content">
-          We cannot find an account with that username
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </ng-container>
   <div class="login-form">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
         <p>
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="outline">
             <mat-label>Username</mat-label>
             <input formControlName="username" matInput placeholder="Username">
             <mat-icon matSuffix>account_circle</mat-icon>
@@ -34,9 +21,19 @@
             <span>Login</span>
           </button>
         </div>
-
-        <hr>
-        
+        <ng-container class="error-container" *ngIf="isInvalidUser">
+          <mat-card class="error-container">
+            <mat-card-content>
+              <div class="alert">
+                <mat-icon>warning</mat-icon>
+                Incorrect Username or Password
+              </div>
+              <div class="content">
+                We cannot find an account with that username
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </ng-container>
     </form>
   </div>
 </div>

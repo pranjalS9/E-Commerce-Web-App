@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICart } from '../../../models/ICart';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/cart/CartServices/cart.service';
-import { style } from '@angular/animations';
+import { AuthService } from 'src/app/auth/AuthServices/auth.service';
 
 @Component({
   selector: 'app-product-list',
@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit {
   
   constructor(
     private dataService: DataService,
-    private formBuilder: FormBuilder,
+    private authService: AuthService,
     private router: Router,
     private cartService: CartService
   ){}
@@ -37,7 +37,7 @@ export class ProductListComponent implements OnInit {
   currentCategory: string = '';
   totalItemsInCart: number = 0;
   initialPrice: number = 0;
-  cartArray: ICart[] = this.cartService.cartArray;
+  cartArray: ICart[] = this.cartService.getCart();
 
 
   ngOnInit(): void {
@@ -53,11 +53,21 @@ export class ProductListComponent implements OnInit {
     this.currentCategory = category;
   }
   getSelectedProducts(category: string): IProduct[] {
-    for(let i=0; i<this.productsArray.length; i++){
-      if(category == this.productsArray[i].category){
-        this.selectedProducts.push(this.productsArray[i]);
-      }
-    }
+   
+    this.selectedProducts = [];
+    this.currentCategory = category;
+
+    // if (this.currentCategory !== '') {
+    //   this.dataService.getSelectedProducts(this.currentCategory).subscribe(
+    //     (products: IProduct[]) => {
+    //       this.selectedProducts = products;
+    //     },
+    //     (error: any) => {
+    //       console.error('Error fetching products:', error);
+    //     }
+    //   );
+    // }
+
     return this.selectedProducts;
   }
 
@@ -66,7 +76,7 @@ export class ProductListComponent implements OnInit {
   // }
   
   addToCart(product: IProduct){
-    let token = localStorage.getItem('token');
+    let token = this.authService.getToken();
     if(token && token!==''){
       let isExistProduct: boolean = false;
       let cartArrayId: number = 0;
@@ -91,8 +101,8 @@ export class ProductListComponent implements OnInit {
             rating: product.rating,
             quantity: 1
         }
-        
-        this.cartArray.push(itemObj);
+        this.cartService.addCart(itemObj);
+        //this.cartArray.push(itemObj);
       }else{
         this.cartArray[cartArrayId].quantity += 1;
         this.cartArray[cartArrayId].price += product.price;

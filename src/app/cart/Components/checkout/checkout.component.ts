@@ -1,5 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { DataService } from '../../../product/DataServices/data-service.service';
+import { Component, OnInit } from '@angular/core';
 import { ICart } from '../../../models/ICart';
 import { CartService } from 'src/app/cart/CartServices/cart.service';
 
@@ -11,20 +10,15 @@ import { CartService } from 'src/app/cart/CartServices/cart.service';
 export class CheckoutComponent implements OnInit{
 
   totalItemsQuantityInCart: number = 0;
+  cartArray!: ICart[];
 
   constructor(
     public cartService: CartService
   ){}
 
   ngOnInit(): void {
-    this.totalItemsQuantityInCart = this.getTotalQuantity();
-  }
-
-  getTotalQuantity(): number {
-    for(let i=0; i<this.cartService.cartArray.length; i++){
-      this.totalItemsQuantityInCart += this.cartService.cartArray[i].quantity;
-    }
-    return this.totalItemsQuantityInCart;
+    this.cartArray = this.cartService.getCart();
+    this.totalItemsQuantityInCart = this.cartService.getItemsQuantityInCart();
   }
 }
 

@@ -16,7 +16,7 @@ export class OrderSummaryComponent implements OnInit {
   ){}
 
   cartTotal: number = 0;
-  totalItemsToBuy: ICart[] = this.cartService.cartArray
+  totalItemsToBuy: ICart[] = this.cartService.getCart()
 
   ngOnInit(): void {
     // for(let i=0; i<this.totalItemsToBuy.length; i++){
@@ -26,12 +26,12 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogAnimationsExampleDialog, {
+    this.dialog.open(SuccessDialog, {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
     });
-    this.cartService.totalItemsOrdered = this.cartService.cartArray;
+    this.cartService.totalItemsOrdered = this.cartService.getCart();
     this.cartService.cartArray = [];
   }
 }
@@ -43,6 +43,6 @@ export class OrderSummaryComponent implements OnInit {
   standalone: true,
   imports: [MatDialogModule, MatButtonModule]
 })
-export class DialogAnimationsExampleDialog {
-  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>) {}
+export class SuccessDialog {
+  constructor(public dialogRef: MatDialogRef<SuccessDialog>) {}
 }

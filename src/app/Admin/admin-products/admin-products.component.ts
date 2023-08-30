@@ -39,19 +39,6 @@ export class AdminProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
-
-    // this.products.forEach(prod => {
-    //   const form = this.fb.group({
-    //     title: [prod.title],
-    //     price: [prod.title],
-    //     description: [prod.description],
-    //     category: [prod.category],
-    //     image: [prod.image],
-    //     rate: [prod.rating.rate],
-    //     count: [prod.rating.count]
-    //   })
-    //   this.editForms.push(form)
-    // })
     
   }
 
@@ -77,7 +64,6 @@ export class AdminProductsComponent implements OnInit {
 
   onDelete(id: number): void {
     this.adminServices.deleteProduct(id).subscribe(response => {
-      console.log(response);
     })
     this.products.splice(id, 1);
   }
@@ -98,7 +84,6 @@ export class AdminProductsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.productData = result;
     });
   }
@@ -178,9 +163,7 @@ export class DialogOverviewExampleDialog implements OnInit{
       }
     };
     this.adminServices.addProduct(toAddProduct).subscribe(response => {
-      console.log('success');
       this.adminServices.productsArray.push(toAddProduct);
-      console.log(this.adminServices.productsArray)
     });
   }
 }

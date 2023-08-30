@@ -31,7 +31,7 @@ export class ShippingInfoComponent implements OnInit {
       agreeCheckbox: [false]
     });
   }
-  checkOutItems: ICart[] = this.cartService.cartArray
+  checkOutItems: ICart[] = this.cartService.getCart()
 
   shippingInfoArray: DialogData = {
     name: '',
@@ -58,7 +58,6 @@ export class ShippingInfoComponent implements OnInit {
 
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.shippingInfoArray = result;
     });
   }

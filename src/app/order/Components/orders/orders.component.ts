@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IOrders } from '../../../models/IOrders';
 import { ICart } from '../../../models/ICart';
 import { CartService } from 'src/app/cart/CartServices/cart.service';
+import { OrderService } from '../../order.service';
 
 @Component({
   selector: 'app-orders',
@@ -10,7 +11,8 @@ import { CartService } from 'src/app/cart/CartServices/cart.service';
 })
 export class OrdersComponent implements OnInit {
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private orderService: OrderService
   ){}
   
   totalItemsBuyArray: ICart[] = this.cartService.totalItemsOrdered;
@@ -18,7 +20,6 @@ export class OrdersComponent implements OnInit {
   orderTotal: number = 0;
 
   ngOnInit(): void {
-    console.log(this.totalItemsBuyArray)
     for(let i=0; i<this.totalItemsBuyArray.length; i++){
       this.orderTotal += this.totalItemsBuyArray[i].price;
     }
@@ -30,7 +31,6 @@ export class OrdersComponent implements OnInit {
         buyerName: 'Pranjal'
       }
     ]
-    console.log(this.totalItemsBuyArray);
   }
 
   generateRandomHash(length: number): string {

@@ -5,7 +5,7 @@
 //   HttpEvent,
 //   HttpInterceptor
 // } from '@angular/common/http';
-// import { AuthService } from './AuthServices/auth.service';
+// import { AuthService } from './auth/AuthServices/auth.service';
 // import { Observable } from 'rxjs';
 // @Injectable()
 // export class TokenInterceptor implements HttpInterceptor {
@@ -14,7 +14,7 @@
     
 //     request = request.clone({
 //       setHeaders: {
-//         Authorization: `Bearer ${this.auth.postUserToken()}`
+//         Authorization: `Bearer ${this.auth.login()}`
 //       }
 //     });
 //     return next.handle(request);

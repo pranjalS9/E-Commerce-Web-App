@@ -68,13 +68,12 @@ export class AdminUsersComponent implements OnInit {
 
   onDelete(id: number): void {
     this.adminServices.deleteProduct(id).subscribe(response => {
-      console.log(response);
     })
     this.users.splice(id, 1);
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    const dialogRef = this.dialog.open(UserDialog, {
       data: {
         id: this.userData.id,
         username: this.userData.username,
@@ -90,7 +89,6 @@ export class AdminUsersComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.userData = result;
     });
   }
@@ -112,13 +110,13 @@ export class AdminUsersComponent implements OnInit {
     ReactiveFormsModule
   ],
 })
-export class DialogOverviewExampleDialog implements OnInit{
+export class UserDialog implements OnInit{
 
   userForm!: FormGroup;
   usersArray!: IUser[]
 
   constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    public dialogRef: MatDialogRef<UserDialog>,
     @Inject(MAT_DIALOG_DATA) public data: IAdminAddUser,
     private formBuilder: FormBuilder,
     private adminServices: AdminServicesService
@@ -163,9 +161,7 @@ export class DialogOverviewExampleDialog implements OnInit{
       phone: this.userForm.value.phone
     };
     this.adminServices.addUser(toAddUser).subscribe(response => {
-      console.log('success');
       this.adminServices.usersArray.push(toAddUser);
-      console.log(this.adminServices.usersArray)
     });
   }
 }

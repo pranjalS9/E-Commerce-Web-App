@@ -20,7 +20,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { HttpClientModule } from '@angular/common/http';
-import { MainHeaderComponent } from './auth/Components/main-header/main-header.component';
+import { MainHeaderComponent } from './main-header/main-header.component';
 import { HomeComponent } from './product/Components/home/home.component';
 import { ProductListComponent } from './product/Components/product-list/product-list.component';
 import { ProductDetailsComponent } from './product/Components/product-details/product-details.component';

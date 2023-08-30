@@ -25,12 +25,12 @@
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap;
-    line-height: 5rem;
+    line-height: 3rem;
     /* text-align: center; */
 }
 table{
     width: 100%;
-    line-height: 5rem;
+    line-height: 2.5rem;
 }
 td{
     width: 50%;
