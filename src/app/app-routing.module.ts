@@ -1,20 +1,34 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './auth/home/home.component';
-import { LoginComponent } from './auth/login/login.component';
+import { HomeComponent } from './product/Components/home/home.component';
+import { LoginComponent } from './auth/Components/login/login.component';
 import { authGuard } from './auth/auth.guard';
-import { SigninComponent } from './auth/signin/signin.component';
-import { ProductDetailsComponent } from './auth/product-details/product-details.component';
-import { CartComponent } from './auth/cart/cart.component';
-import { CheckoutComponent } from './auth/checkout/checkout.component';
-import { PaymentDetailsComponent } from './auth/payment-details/payment-details.component';
-import { OrderSummaryComponent } from './auth/order-summary/order-summary.component';
-import { OrdersComponent } from './auth/orders/orders.component';
+import { ProductDetailsComponent } from './product/Components/product-details/product-details.component';
+import { CartComponent } from './cart/Components/cart/cart.component';
+import { CheckoutComponent } from './cart/Components/checkout/checkout.component';
+import { PaymentDetailsComponent } from './payment/Components/payment-details/payment-details.component';
+import { OrderSummaryComponent } from './payment/Components/order-summary/order-summary.component';
+import { OrdersComponent } from './order/Components/orders/orders.component';
+import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
+import { AdminProductsComponent } from './Admin/admin-products/admin-products.component';
+import { AdminUsersComponent } from './Admin/admin-users/admin-users.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'admin/home',
+    component: AdminHomeComponent
+  },
+  {
+    path: 'admin/home/products',
+    component: AdminProductsComponent
+  },
+  {
+    path: 'admin/home/users',
+    component: AdminUsersComponent
   },
   {
     path: 'auth/login',

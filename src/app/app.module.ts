@@ -5,8 +5,7 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './auth/login/login.component';
-import { RouterModule } from '@angular/router';
+import { LoginComponent } from './auth/Components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,28 +15,28 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select'
 
-import { HeaderComponent } from './auth/header/header.component';
-
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
-import { SigninComponent } from './auth/signin/signin.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { HttpClientModule } from '@angular/common/http';
-import { MainHeaderComponent } from './auth/main-header/main-header.component';
-import { HomeComponent } from './auth/home/home.component';
-import { ProductListComponent } from './auth/product-list/product-list.component';
-import { ProductDetailsComponent } from './auth/product-details/product-details.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MainHeaderComponent } from './main-header/main-header.component';
+import { HomeComponent } from './product/Components/home/home.component';
+import { ProductListComponent } from './product/Components/product-list/product-list.component';
+import { ProductDetailsComponent } from './product/Components/product-details/product-details.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CartComponent } from './auth/cart/cart.component';
-import { CheckoutComponent } from './auth/checkout/checkout.component';
-import {Component, Inject} from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { CartComponent } from './cart/Components/cart/cart.component';
+import { CheckoutComponent } from './cart/Components/checkout/checkout.component';
+import {MatDialogModule} from '@angular/material/dialog';
 import {NgIf} from '@angular/common';
-import { ShippingInfoComponent } from './auth/shipping-info/shipping-info.component';
-import { PaymentDetailsComponent } from './auth/payment-details/payment-details.component';
-import { OrderSummaryComponent } from './auth/order-summary/order-summary.component';
-import { OrdersComponent } from './auth/orders/orders.component';
+import { ShippingInfoComponent } from './payment/Components/shipping-info/shipping-info.component';
+import { PaymentDetailsComponent } from './payment/Components/payment-details/payment-details.component';
+import { OrderSummaryComponent } from './payment/Components/order-summary/order-summary.component';
+import { OrdersComponent } from './order/Components/orders/orders.component';
+import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
+import { AdminHeaderComponent } from './Admin/admin-header/admin-header.component';
+import { AdminProductsComponent } from './Admin/admin-products/admin-products.component';
+import { AdminUsersComponent } from './Admin/admin-users/admin-users.component';
 
 
 @NgModule({
@@ -45,8 +44,6 @@ import { OrdersComponent } from './auth/orders/orders.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    HeaderComponent,
-    SigninComponent,
     MainHeaderComponent,
     ProductListComponent,
     ProductDetailsComponent,
@@ -55,7 +52,11 @@ import { OrdersComponent } from './auth/orders/orders.component';
     ShippingInfoComponent,
     PaymentDetailsComponent,
     OrderSummaryComponent,
-    OrdersComponent
+    OrdersComponent,
+    AdminHomeComponent,
+    AdminHeaderComponent,
+    AdminProductsComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +80,7 @@ import { OrdersComponent } from './auth/orders/orders.component';
     MatButtonModule,
     NgIf,
     MatDialogModule,
+    MatButtonToggleModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

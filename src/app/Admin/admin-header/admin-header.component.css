@@ -1,0 +1,41 @@
+.main-header-nav{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    z-index: 1;
+}
+mat-toolbar{
+    background-color: black;
+}
+span{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+}
+.title{
+    margin-left: 1rem;
+    cursor: pointer;
+}
+a{
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+a:hover {
+    color: rgb(182, 181, 181);
+    transition: 0.5s ease-in-out;
+}
+.signin-nav{
+    display: flex;
+    justify-content: flex-end;
+    width: 45%;
+    margin-top: 1.7rem;
+}
+.admin{
+    margin-right: 1rem;
+}

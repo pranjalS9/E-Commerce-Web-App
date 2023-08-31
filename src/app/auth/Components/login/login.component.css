@@ -1,0 +1,43 @@
+.error-container{
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    border: 1px solid red;
+}
+.alert{
+    color: red;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+.content{
+    text-align: center;
+}
+.main-container{
+    position: relative;
+    top: 150px;
+    width: fit-content;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 5px;
+    background-color: white;
+}
+.login-form{
+    position: relative;
+    top: 30%;
+    width: fit-content;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 5px;
+    background-color: white;
+}
+button{
+    background-color: black;
+    width: 100%;
+    padding: 2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+span{
+    color: white;
+}

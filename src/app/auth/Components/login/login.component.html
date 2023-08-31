@@ -1,0 +1,39 @@
+
+<div class="main-container">
+  <div class="login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input formControlName="username" matInput placeholder="Username">
+            <mat-icon matSuffix>account_circle</mat-icon>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput placeholder="Password">
+            <mat-icon matSuffix>https</mat-icon>
+          </mat-form-field>
+        </p>
+        <div class="login-btn">
+          <button type="submit" mat-button>
+            <span>Login</span>
+          </button>
+        </div>
+        <ng-container class="error-container" *ngIf="isInvalidUser">
+          <mat-card class="error-container">
+            <mat-card-content>
+              <div class="alert">
+                <mat-icon>warning</mat-icon>
+                Incorrect Username or Password
+              </div>
+              <div class="content">
+                We cannot find an account with that username
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </ng-container>
+    </form>
+  </div>
+</div>

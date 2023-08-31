@@ -1,0 +1,55 @@
+
+<div class="products">
+
+    <p>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle value="cateogry" *ngFor="let category of allCategories; index as i" (click)="onSelectedCategory(category)">
+            {{category}}
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </p>
+
+
+    <!-- CATEGORY-WISE-DISPLAY PRODUCTS -->
+    <div class="product-list" *ngIf="currentCategory ==''">
+            <mat-card *ngFor="let product of productsArray; index as i">
+            <mat-card-content>
+                <div class="product-details">
+                    <div class="image"><img [src]="product?.image" alt=""></div>
+                    <div class="title" [routerLink]="['/product-details', product.id]">
+                        <a>
+                            {{product?.title}}
+                        </a>
+                    </div>
+                    <div class="bottom-container">
+                        <div class="price">{{product?.price | currency:'INR'}}</div>
+                        <div class="add-to-cart" (click)="addToCart(product)">
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                
+            </mat-card-content>
+        </mat-card>
+    </div> 
+    <div class="product-list" *ngIf="currentCategory !== ''">
+        <mat-card *ngFor="let product of getSelectedProducts(currentCategory); index as i">
+                <mat-card-content>
+                    <div class="product-details">
+                        <div class="image"><img [src]="product?.image" alt=""></div>
+                        <div class="title" [routerLink]="['/product-details', product.id]">
+                            <a>
+                                {{product?.title}}
+                            </a>
+                        </div>
+                        <div class="bottom-container">
+                            <div class="price">{{product?.price | currency}}</div>
+                            <div class="add-to-cart" (click)="addToCart(product)">
+                                <mat-icon>add_shopping_cart</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+    </div>   
+</div>

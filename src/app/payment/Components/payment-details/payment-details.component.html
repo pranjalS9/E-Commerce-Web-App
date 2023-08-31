@@ -1,0 +1,79 @@
+
+<mat-card class="main">
+    <mat-card-content>
+        <div class="payment-container">
+            <mat-card>
+                <mat-card-content>
+                    <div class="payment-heading">
+                        Payment Details
+                    </div>
+                    <hr>
+                    <div class="payment-details-container">
+                        <div class="left-pane">
+                            <form [formGroup]="paymentForm">
+                                <div class="form-group">
+                                    <label>Card Number</label>
+                                    <input type="text" formControlName="cardNumber" placeholder="Card Number">
+                                    <div *ngIf="isInvalid('cardNumber') !== ''" class="error-message">
+                                        {{isInvalid('cardNumber')}}
+                                    </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                  <label>Name on Card</label>
+                                  <input type="text" formControlName="nameOnCard" placeholder="Name on Card">
+                                  <div *ngIf="isInvalid('nameOnCard') !== ''" class="error-message">
+                                    {{isInvalid('nameOnCard')}}
+                                  </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                  <label>Security Code (CVV)</label>
+                                  <input type="text" formControlName="securityCode" placeholder="CVV">
+                                  <div *ngIf="isInvalid('securityCode') !== ''" class="error-message">
+                                    {{isInvalid('securityCode')}}
+                                  </div>  
+                                </div>
+                              
+                                <div class="form-group">
+                                  <label>Expiration Date</label>
+                                  <select formControlName="expirationMonth">
+                                    <option value="" disabled>Select Month</option>
+                                    <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+                                  </select>
+                                  <div *ngIf="isInvalid('expirationMonth') !== ''" class="error-message">
+                                    {{isInvalid('expirationMonth')}}
+                                  </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                  <select formControlName="expirationYear">
+                                    <option value="" disabled>Select Year</option>
+                                    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                                  </select>
+                                  <div *ngIf="isInvalid('expirationYear') !== ''" class="error-message">
+                                    {{isInvalid('expirationYear')}}
+                                  </div>
+                                </div>
+                              
+                                <button type="submit" routerLink="/order-summary" [disabled]="!paymentForm.valid"
+                                [style.background-color]="paymentForm.valid ? 'black' : 'grey'">Submit</button>
+
+                                <button routerLink="/cart">Cancel</button>
+                            </form>
+                        </div>
+                        <div class="vertical-line"></div>
+                        <div class="right-pane">
+                            <div class="right-pane-heading">
+                                We accept all major credit and debit cards:
+                            </div>
+                            <div class="card-options">
+                                <img src="assets/cards.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-card-content>
+</mat-card>      

@@ -1,0 +1,59 @@
+
+<div class="cart-container">
+    <mat-card>
+        <mat-card-content>
+            <div class="header">
+                <div class="heading">
+                    Shopping Cart
+                </div>
+                <hr>
+                <button (click)="deselectAll()" class="deselect-all-items">Deselect all items</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <div class="cart">
+        <div class="items-container">
+            <mat-card *ngIf="itemsInCartArray.length > 0">
+                <mat-card-content>
+                    <div class="details-conatiner">
+                        <div class="all-cart-items" *ngFor="let item of itemsInCartArray; index as i">
+                            <div class="image"><img [src]="item.image" alt=""></div>
+                            <div class="details">
+                                <div class="title">{{item.title}}</div>
+                                <div class="price">{{ item.price | currency:'INR' }}</div>
+                                <div class="availability">In Stock</div>
+                                <div class="second-container">
+                                    <div class="quantity">
+                                        <div class="decrement"><button (click)="decrementQuantity(i)" class="manage-quantity-btn"><span>-</span></button></div>
+                                        <div class="buy-quantity">{{item.quantity}}</div>
+                                        <div class="increment"><button (click)="incrementQuantity(i)" class="manage-quantity-btn"><span>+</span></button></div>
+                                    </div>
+                                    <div class="vertical-line"></div>
+                                    <div class="delete-item">
+                                        <button (click)="onDeleteOne(i)" class="delete-one-item">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="subtotal-checkout-container">
+            <mat-card *ngIf="itemsInCartArray.length > 0">
+                <mat-card-content>
+                    <div class="subtotal-container">
+                        <div class="subtotal">
+                            Subtotal({{totalCartItems}}): <span class="total-amount">{{ cartTotalPrice | currency:'INR' }}</span>
+                        </div>
+                        <div class="proceed">
+                            <button mat-button class="proceed-btn"><a routerLink="/checkout">Proceed To Checkout</a></button>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    
+   
+</div>

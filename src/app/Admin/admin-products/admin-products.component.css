@@ -1,0 +1,55 @@
+.products-display-container{
+    position: absolute;
+    margin-top: 4.05rem;
+    width: 100%;
+}
+h1{
+    text-align: center;
+    font-weight: 500;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th{
+    border: 1px solid #ddd;
+    /* text-align: center; */
+    padding: 1rem;
+}
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+/* tr:hover{
+    background-color: #ddd;
+} */
+th{
+    background-color: black;
+    color: white;
+}
+img{
+    width: 70px;
+    height: 70px;
+}
+.product-list{
+    height: 457px;
+    overflow-y: scroll;
+}
+.operation{
+    cursor: pointer;
+}
+.add-btn{
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.form-container{
+    text-align: center;
+    width: 600px;
+}
+mat-form-field{
+    margin-right: 1rem;
+}
